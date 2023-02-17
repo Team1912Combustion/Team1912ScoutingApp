@@ -7,7 +7,10 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_first_fragment">Team 1912</string>
+    <string name="main_text_1">Team 1912</string>
+    <string name="main_text_2">Scouting App</string>
+
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
