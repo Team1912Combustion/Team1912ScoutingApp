@@ -24,7 +24,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2023 Scout Appp"
+            android:text="2023 Scout App"
             android:textAlignment="center"
             android:textSize="24sp" />
 
