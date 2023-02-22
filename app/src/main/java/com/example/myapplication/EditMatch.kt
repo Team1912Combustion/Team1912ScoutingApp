@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.example.myapplication.com.example.myapplication.Match
 import com.example.myapplication.databinding.EditMatchBinding
 
 

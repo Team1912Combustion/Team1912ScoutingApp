@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'io.realm.kotlin'
+
 }
 
 android {
@@ -38,6 +40,10 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'io.realm.kotlin:library-base:1.6.0'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
