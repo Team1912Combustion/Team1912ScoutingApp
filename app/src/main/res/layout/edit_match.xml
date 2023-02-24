@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="match" type="com.example.myapplication.com.example.myapplication.Match"/>
+        <variable name="match" type="com.example.myapplication.Match"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,10 +24,6 @@
                     android:id="@+id/scoringTable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -107,15 +103,72 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" >
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/leftGrid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Left Grid"
+                            android:text="Autonomous"
                             android:textSize="34sp" />
                     </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:id="@+id/divider2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="?android:attr/listDivider" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/checkBox2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MOBILITY: Robot leaves Community" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/checkBox4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Docked: Engaged" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <CheckBox
+                            android:id="@+id/checkBox3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Docked: Not Engaged" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:id="@+id/divider3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="?android:attr/listDivider" />
+                    </TableRow>
+
                 </TableLayout>
 
                 <LinearLayout
@@ -221,11 +274,20 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent" >
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        <ImageView
+                            android:id="@+id/test_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@android:drawable/alert_dark_frame" />
+
+                        <RatingBar
+                            android:id="@+id/ratingBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </TableRow>
+
                 </TableLayout>
 
             </LinearLayout>

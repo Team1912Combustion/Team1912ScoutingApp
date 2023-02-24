@@ -1,16 +1,12 @@
 package com.example.myapplication
-
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.databinding.DataBindingUtil
-import com.example.myapplication.com.example.myapplication.Match
 import com.example.myapplication.databinding.EditMatchBinding
 import com.google.android.material.snackbar.Snackbar
 import java.util.logging.Logger
@@ -23,9 +19,8 @@ class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
         val binding: EditMatchBinding = DataBindingUtil.setContentView(
             this, R.layout.edit_match)
         setContentView(binding.root)
-
         binding.match = Match(0,"null",0)
-
+        var testValue: Int = 0
         //  Declare all spinners
         var score_choices = arrayOf("None","Block","Cone")
         val spinner_1tl: Spinner = findViewById(R.id.spinner_1tl)
@@ -54,6 +49,24 @@ class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
         spinner_1bl.adapter = aa
         spinner_1bm.adapter = aa
         spinner_1br.adapter = aa
+        var images = arrayOf(
+            R.drawable._t1912_2019_logo
+        )
+
+        binding.testImg.setOnClickListener { view ->
+            testValue = testValue + 1
+            if(testValue >= images.size)
+                testValue = 0
+
+            val imageView = view as ImageView
+            val drawable = getDrawable(images[testValue])
+
+            val snack = Snackbar.make(binding.root!!, drawable.toString(),1000000000)
+            imageView.setImageDrawable(getDrawable(images[testValue]))
+
+
+            snack.show()
+        }
 
         binding.floatingActionButton2.setOnClickListener { view ->
             SaveMatch()
