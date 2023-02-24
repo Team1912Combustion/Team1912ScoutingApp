@@ -1,4 +1,3 @@
-package com.example.myapplication
 
 data class Match(
     var team_number: Int,

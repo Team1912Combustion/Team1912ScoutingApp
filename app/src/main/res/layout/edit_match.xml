@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="match" type="com.example.myapplication.Match"/>
+        <variable name="match" type="com.example.myapplication.com.example.myapplication.Match"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

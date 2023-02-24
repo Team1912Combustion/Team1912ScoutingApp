@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.example.myapplication.com.example.myapplication.Match
 import com.example.myapplication.databinding.EditMatchBinding
 import com.google.android.material.snackbar.Snackbar
 import java.util.logging.Logger
