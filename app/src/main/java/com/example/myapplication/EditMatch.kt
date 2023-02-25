@@ -1,18 +1,13 @@
 package com.example.myapplication
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.EditMatchBinding
-import com.google.android.material.snackbar.Snackbar
-import java.util.logging.Logger
 
 
-class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
+class EditMatch : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.edit_match)
@@ -21,7 +16,9 @@ class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
         setContentView(binding.root)
         binding.match = Match(0,"null",0)
         var testValue: Int = 0
-        //  Declare all spinners
+
+
+        //  Declare Auto Team Spinners
         var score_choices = arrayOf("None","Block","Cone")
         val spinner_1tl: Spinner = findViewById(R.id.spinner_1tl)
         val spinner_1tm: Spinner = findViewById(R.id.spinner_1tm)
@@ -35,24 +32,112 @@ class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
         val spinner_1bm: Spinner = findViewById(R.id.spinner_1bm)
         val spinner_1br: Spinner = findViewById(R.id.spinner_1br)
 
+        // Declare Auto Community Spinners
+        val spinner_ac_1tl: Spinner = findViewById(R.id.spinner_ac_1tl)
+        val spinner_ac_1tm: Spinner = findViewById(R.id.spinner_ac_1tm)
+        val spinner_ac_1tr: Spinner = findViewById(R.id.spinner_ac_1tr)
 
-        var aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, score_choices)
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner_1tl.adapter = aa
-        spinner_1tm.adapter = aa
-        spinner_1tr.adapter = aa
+        val spinner_ac_1ml: Spinner = findViewById(R.id.spinner_ac_1ml)
+        val spinner_ac_1mm: Spinner = findViewById(R.id.spinner_ac_1mm)
+        val spinner_ac_1mr: Spinner = findViewById(R.id.spinner_ac_1mr)
 
-        spinner_1ml.adapter = aa
-        spinner_1mm.adapter = aa
-        spinner_1mr.adapter = aa
+        val spinner_ac_1bl: Spinner = findViewById(R.id.spinner_ac_1bl)
+        val spinner_ac_1bm: Spinner = findViewById(R.id.spinner_ac_1bm)
+        val spinner_ac_1br: Spinner = findViewById(R.id.spinner_ac_1br)
 
-        spinner_1bl.adapter = aa
-        spinner_1bm.adapter = aa
-        spinner_1br.adapter = aa
+        //
+        val spinner_to_1tl: Spinner = findViewById(R.id.spinner_to_1tl)
+        val spinner_to_1tm: Spinner = findViewById(R.id.spinner_to_1tm)
+        val spinner_to_1tr: Spinner = findViewById(R.id.spinner_to_1tr)
+
+        val spinner_to_1ml: Spinner = findViewById(R.id.spinner_to_1ml)
+        val spinner_to_1mm: Spinner = findViewById(R.id.spinner_to_1mm)
+        val spinner_to_1mr: Spinner = findViewById(R.id.spinner_to_1mr)
+
+        val spinner_to_1bl: Spinner = findViewById(R.id.spinner_to_1bl)
+        val spinner_to_1bm: Spinner = findViewById(R.id.spinner_to_1bm)
+        val spinner_to_1br: Spinner = findViewById(R.id.spinner_to_1br)
+
+        //
+        val spinner_2tl: Spinner = findViewById(R.id.spinner_2tl)
+        val spinner_2tm: Spinner = findViewById(R.id.spinner_2tm)
+        val spinner_2tr: Spinner = findViewById(R.id.spinner_2tr)
+
+        val spinner_2ml: Spinner = findViewById(R.id.spinner_2ml)
+        val spinner_2mm: Spinner = findViewById(R.id.spinner_2mm)
+        val spinner_2mr: Spinner = findViewById(R.id.spinner_2mr)
+
+        val spinner_2bl: Spinner = findViewById(R.id.spinner_2bl)
+        val spinner_2bm: Spinner = findViewById(R.id.spinner_2bm)
+        val spinner_2br: Spinner = findViewById(R.id.spinner_2br)
+
+        var charge_states = arrayOf("None","Engaged","Unengaged")
+        val auto_chargeS1: Spinner = findViewById(R.id.auto_chargeS1)
+        val auto_chargeS2: Spinner = findViewById(R.id.auto_chargeS2)
+
+        var element_array = ArrayAdapter(this, android.R.layout.simple_spinner_item, score_choices)
+        element_array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        var charge_adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, charge_states)
+        element_array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        // Assign array adapter for auto team grid
+        spinner_1tl.adapter = element_array
+        spinner_1tm.adapter = element_array
+        spinner_1tr.adapter = element_array
+
+        spinner_1ml.adapter = element_array
+        spinner_1mm.adapter = element_array
+        spinner_1mr.adapter = element_array
+
+        spinner_1bl.adapter = element_array
+        spinner_1bm.adapter = element_array
+        spinner_1br.adapter = element_array
+
+        // Assign array adapter for auto community grid
+        spinner_ac_1tl.adapter = element_array
+        spinner_ac_1tm.adapter = element_array
+        spinner_ac_1tr.adapter = element_array
+
+        spinner_ac_1ml.adapter = element_array
+        spinner_ac_1mm.adapter = element_array
+        spinner_ac_1mr.adapter = element_array
+
+        spinner_ac_1bl.adapter = element_array
+        spinner_ac_1bm.adapter = element_array
+        spinner_ac_1br.adapter = element_array
+
+        //
+        spinner_to_1tl.adapter = element_array
+        spinner_to_1tm.adapter = element_array
+        spinner_to_1tr.adapter = element_array
+
+        spinner_to_1ml.adapter = element_array
+        spinner_to_1mm.adapter = element_array
+        spinner_to_1mr.adapter = element_array
+
+        spinner_to_1bl.adapter = element_array
+        spinner_to_1bm.adapter = element_array
+        spinner_to_1br.adapter = element_array
+
+        //
+        spinner_2tl.adapter = element_array
+        spinner_2tm.adapter = element_array
+        spinner_2tr.adapter = element_array
+
+        spinner_2ml.adapter = element_array
+        spinner_2mm.adapter = element_array
+        spinner_2mr.adapter = element_array
+
+        spinner_2bl.adapter = element_array
+        spinner_2bm.adapter = element_array
+        spinner_2br.adapter = element_array
+
+        auto_chargeS1.adapter = charge_adapter
+        auto_chargeS2.adapter = charge_adapter
+
         var images = arrayOf(
             R.drawable._t1912_2019_logo
         )
-
+/*
         binding.testImg.setOnClickListener { view ->
             testValue = testValue + 1
             if(testValue >= images.size)
@@ -67,7 +152,7 @@ class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
 
             snack.show()
         }
-
+*/
         binding.floatingActionButton2.setOnClickListener { view ->
             SaveMatch()
         }
@@ -76,7 +161,7 @@ class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
     }
 
 
-    override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+    /*override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
         // An item was selected. You can retrieve the selected item using
         // parent.getItemAtPosition(pos)
 
@@ -85,11 +170,11 @@ class EditMatch : AppCompatActivity() , AdapterView.OnItemSelectedListener {
 
         view?.setBackgroundColor(Color.WHITE)
     }
-
-    override fun onNothingSelected(parent: AdapterView<*>) {
+*/
+    /*override fun onNothingSelected(parent: AdapterView<*>) {
         // Another interface callback
     }
-
+*/
 
     fun SaveMatch(){
 
