@@ -2,6 +2,7 @@ package com.example.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.EditMatchBinding
@@ -10,16 +11,18 @@ import com.example.myapplication.databinding.EditMatchBinding
 class EditMatch : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         //setContentView(R.layout.edit_match)
         val binding: EditMatchBinding = DataBindingUtil.setContentView(
             this, R.layout.edit_match)
         setContentView(binding.root)
-        binding.match = Match(0,"null",0)
-        var testValue: Int = 0
+        binding.match = Match(0,"Foo",1, true)
+        val testValue: Int = 0
 
-
+        val mobilityCheck: CheckBox = findViewById(R.id.mobilityCheck)
+        mobilityCheck.isChecked = true
         //  Declare Auto Team Spinners
-        var score_choices = arrayOf("None","Block","Cone")
+        val score_choices = arrayOf("None","Block","Cone")
         val spinner_1tl: Spinner = findViewById(R.id.spinner_1tl)
         val spinner_1tm: Spinner = findViewById(R.id.spinner_1tm)
         val spinner_1tr: Spinner = findViewById(R.id.spinner_1tr)
@@ -81,6 +84,16 @@ class EditMatch : AppCompatActivity()  {
         element_array.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Assign array adapter for auto team grid
         spinner_1tl.adapter = element_array
+        spinner_1tl?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+            }
+
+        }
+
         spinner_1tm.adapter = element_array
         spinner_1tr.adapter = element_array
 
@@ -160,6 +173,11 @@ class EditMatch : AppCompatActivity()  {
 
     }
 
+    fun updateGridValue(pos: Int, id: Int) {
+        find
+        val parts = id.split(",").toTypedArray()
+
+    }
 
     /*override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
         // An item was selected. You can retrieve the selected item using
